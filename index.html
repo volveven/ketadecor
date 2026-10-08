@@ -349,6 +349,177 @@
         .text-cream { color:#FAF8F3; }
         .text-muted { color:#686868; }
 
+        /* ═══════════════════════════════════════════════════════
+           RESPONSIVE — Mobile / Tablet / Desktop
+        ════════════════════════════════════════════════════════ */
+
+        /* ─── Shared: reduce section padding on mobile ───────── */
+        @media (max-width: 767px) {
+            /* Nav */
+            #nav { padding: 1.2rem 1.25rem; }
+            #nav.is-scrolled { padding: .85rem 1.25rem; }
+
+            /* Nav logo: smaller tracking on mobile */
+            #nav a[href="index.html"] {
+                font-size: .95rem;
+                letter-spacing: .2em;
+            }
+
+            /* Hero: hide right social strip on very small screens */
+            #hero .absolute.bottom-10.right-8 { display: none; }
+
+            /* Hero button: full-width on mobile */
+            .hero-content .mag-btn {
+                width: 100%;
+                max-width: 280px;
+                padding: 1rem 1.5rem;
+            }
+
+            /* Manifesto: tighter vertical padding */
+            section.py-32 { padding-top: 4rem; padding-bottom: 4rem; }
+            section.py-28 { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+            section.py-16 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
+
+            /* ── Horizontal Scroll → Vertical stack on mobile ── */
+            /* Disable GSAP pin — handled in JS via isMobile check */
+            #h-outer { overflow: visible; }
+            #h-track {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: auto;
+                transform: none !important; /* override any GSAP x transform */
+            }
+            .h-slide {
+                width: 100%;
+                height: 85vw;
+                min-height: 320px;
+                max-height: 520px;
+                flex-shrink: unset;
+            }
+            .h-title { font-size: clamp(2.8rem, 14vw, 5rem); }
+            .h-desc  { font-size: .76rem; max-width: 90%; }
+            .h-num   { display: none; } /* de-clutter on small screens */
+            #h-progress-bar { display: none; }
+            #h-slide-label  { display: none; }
+            /* Section label above slides */
+            #h-outer > div:first-child {
+                position: relative;
+                top: auto; left: auto;
+                padding: 1.5rem 1.25rem .75rem;
+            }
+
+            /* ── Gallery: 2-col always, smaller gap ─── */
+            .gallery-grid { gap: 2px; padding: 0 1rem; }
+            .g-item { aspect-ratio: 1/1; } /* square on mobile */
+            .g-wide { grid-column: span 2; aspect-ratio: 2/1; }
+
+            /* ── Gallery header ── */
+            #galerie .max-w-7xl.px-6 { padding-left: 1rem; padding-right: 1rem; }
+
+            /* ── Packages: full-width cards ─── */
+            .grid.grid-cols-1 { gap: 1rem; }
+            .pkg-card { padding: 1.5rem; }
+            .pkg-card:hover { transform: none; } /* no hover lift on touch */
+
+            /* ── Process: remove sticky, stack ─── */
+            #ablauf .sticky { position: relative; top: auto; }
+            #ablauf .mt-10 { margin-top: 1.5rem; } /* champagne image */
+            #ablauf .lg\:w-5\/12,
+            #ablauf .lg\:w-7\/12 { width: 100%; }
+
+            /* ── FAQ: larger tap targets ─── */
+            .faq-trigger { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+            .faq-trigger h3 { font-size: .85rem; }
+            .faq-body.open { max-height: 300px; }
+
+            /* ── Location badges: wrap tighter ─── */
+            .loc-badge { padding: .4rem .85rem; font-size: .55rem; }
+
+            /* ── Contact cards: horizontal row ─── */
+            #kontakt .grid.grid-cols-1 { grid-template-columns: 1fr; max-width: 300px; }
+
+            /* ── Footer: single column ─── */
+            footer .grid { grid-template-columns: 1fr 1fr; gap: 2rem 1.5rem; }
+            footer .flex.flex-col.lg\:flex-row { gap: 2.5rem; }
+
+            /* ── Floating cluster: smaller, closer to edge ─── */
+            #float-cluster { bottom: 1.2rem; right: 1.2rem; gap: .6rem; }
+            .float-btn { width: 44px; height: 44px; }
+            .float-label { display: none; } /* no tooltips on touch */
+
+            /* ── Cookie banner ─── */
+            #cookie-banner { padding: 1.25rem 1rem; }
+
+            /* ── Testimonial: faster on small screens ─── */
+            .ticker-track { animation-duration: 22s; }
+
+            /* ── Scroll indicator: hide on very small ─── */
+            @media (max-height: 600px) {
+                #hero .absolute.bottom-10 { display: none; }
+            }
+        }
+
+        /* ─── Phone landscape (wide but short) ──────────────── */
+        @media (max-width: 900px) and (orientation: landscape) {
+            #hero { height: 100svh; min-height: 320px; }
+            .h-slide { height: 100svh; min-height: 320px; max-height: none; }
+            #h-track { flex-direction: row; width: 500vw; height: 100svh; }
+            #h-outer { overflow: hidden; }
+            /* restore horizontal scroll for landscape */
+            #h-progress-bar, #h-slide-label { display: block; }
+            #h-outer > div:first-child { position: absolute; }
+        }
+
+        /* ─── Tablet portrait (768px – 1023px) ──────────────── */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            /* Nav stays desktop layout but tighter */
+            #nav { padding: 1.4rem 2rem; }
+            #nav.is-scrolled { padding: .9rem 2rem; }
+
+            /* Packages: 2-col on tablet */
+            .grid.md\:grid-cols-3 { grid-template-columns: repeat(2, 1fr); }
+
+            /* Process: stack on tablet */
+            #ablauf .flex.flex-col.lg\:flex-row { flex-direction: column; }
+            #ablauf .lg\:w-5\/12,
+            #ablauf .lg\:w-7\/12 { width: 100%; }
+            #ablauf .sticky { position: relative; top: auto; }
+
+            /* Gallery: 3 columns on tablet */
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+            .g-wide { grid-column: span 3; aspect-ratio: 3/1; }
+
+            /* Horizontal scroll: keep it, adjust font */
+            .h-title { font-size: clamp(3rem, 9vw, 6rem); }
+
+            /* Footer: 2 rows */
+            footer .grid.grid-cols-2.md\:grid-cols-3 { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* ─── Tablet landscape / small desktop (1024–1279px) ── */
+        @media (min-width: 1024px) and (max-width: 1279px) {
+            .pkg-card { padding: 1.75rem; }
+            .h-title  { font-size: clamp(4rem, 7vw, 7rem); }
+        }
+
+        /* ─── Touch: disable hover animations (performance) ──── */
+        @media (hover: none) {
+            .h-slide:hover .h-bg { filter: brightness(.28) saturate(.6); transform: scale(1.06); }
+            .pkg-card:hover { transform: none; border-color: rgba(201,168,108,.1); }
+            .g-item:hover img { transform: none; filter: grayscale(15%) brightness(.72) saturate(.9); }
+            .g-item:hover .g-label { transform: translateY(0); } /* always show labels on touch */
+            .mag-btn:hover::after { transform: none; }
+            .mag-btn:hover { color: #FAF8F3; border-color: rgba(201,168,108,.35); }
+        }
+
+        /* ─── Safe area insets (iPhone notch / Dynamic Island) ─ */
+        @supports (padding: env(safe-area-inset-bottom)) {
+            #float-cluster { bottom: calc(1.2rem + env(safe-area-inset-bottom)); right: calc(1.2rem + env(safe-area-inset-right)); }
+            #cookie-banner { padding-bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
+            #mobile-menu   { padding-bottom: env(safe-area-inset-bottom); }
+            #nav           { padding-top: max(1.2rem, env(safe-area-inset-top)); }
+        }
 
     </style>
 </head>
@@ -1071,7 +1242,7 @@ gsap.to('#hero-bg', {
     scrollTrigger: { trigger:'#hero', scrub:true },
 });
 
-/* ── 6. Horizontal Scroll (FIXED) ─────────────────────────── */
+/* ── 6. Horizontal Scroll — Desktop only ──────────────────── */
 (function() {
     const outer   = document.getElementById('h-outer');
     const track   = document.getElementById('h-track');
@@ -1079,30 +1250,54 @@ gsap.to('#hero-bg', {
     const lbl     = document.getElementById('h-slide-label');
     const SLIDES  = 5;
 
-    ScrollTrigger.create({
-        trigger: outer,
-        start:   'top top',
-        end:     () => '+=' + (window.innerWidth * (SLIDES - 1)),
-        pin:     true,
-        scrub:   1,
-        onUpdate(self) {
-            const xPx = self.progress * window.innerWidth * (SLIDES - 1);
-            gsap.set(track, { x: -xPx });
-            // Update progress bar
-            const widthPct = (1 / SLIDES) + self.progress * (1 - 1 / SLIDES);
-            progBar.style.width = (widthPct * 100) + '%';
-            // Update label
-            const idx = Math.round(self.progress * (SLIDES - 1)) + 1;
-            lbl.textContent = '0' + idx + ' / 0' + SLIDES;
+    let st = null;
+
+    function initHScroll() {
+        const isPortraitMobile = window.innerWidth < 768 && window.innerHeight > window.innerWidth;
+        if (isPortraitMobile) {
+            // Mobile portrait: slides stacked vertically via CSS, kill any existing trigger
+            if (st) { st.kill(); st = null; }
+            gsap.set(track, { clearProps: 'x,transform' }); // remove any leftover x
+            return;
         }
+
+        // Desktop or landscape: enable horizontal pin + scrub
+        if (st) st.kill();
+        st = ScrollTrigger.create({
+            trigger: outer,
+            start:   'top top',
+            end:     () => '+=' + (window.innerWidth * (SLIDES - 1)),
+            pin:     true,
+            scrub:   1,
+            onUpdate(self) {
+                const xPx = self.progress * window.innerWidth * (SLIDES - 1);
+                gsap.set(track, { x: -xPx });
+                const widthPct = (1 / SLIDES) + self.progress * (1 - 1 / SLIDES);
+                if (progBar) progBar.style.width = (widthPct * 100) + '%';
+                const idx = Math.round(self.progress * (SLIDES - 1)) + 1;
+                if (lbl) lbl.textContent = '0' + idx + ' / 0' + SLIDES;
+            }
+        });
+    }
+
+    initHScroll();
+
+    // Re-evaluate on resize (e.g. phone rotated to landscape)
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            ScrollTrigger.refresh();
+            initHScroll();
+        }, 300);
     });
 })();
 
 /* ── 7. Fade-in on scroll ─────────────────────────────────── */
 document.querySelectorAll('.js-fade').forEach(el => {
     gsap.from(el, {
-        y: 35, opacity: 0, duration: 1.1, ease: 'power3.out',
-        scrollTrigger: { trigger: el, start: 'top 85%' }
+        y: 30, opacity: 0, duration: 1.0, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%' }
     });
 });
 
