@@ -9,7 +9,7 @@
     <meta property="og:title" content="Ketadecor | Exklusive Heiratsanträge & Luxus-Dekoration">
     <meta property="og:description" content="Wir erschaffen keine Dekorationen. Wir inszenieren Gefühle. Heiratsanträge & Event-Setups in NRW, BaWü und bald Bayern.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="images/nacht_setup.jpg">
+    <meta property="og:image" content="images/IMG_0012.PNG">
     <title>Ketadecor | Exklusive Heiratsanträge & Luxus-Dekoration</title>
 
     <!-- Tailwind CSS -->
@@ -157,14 +157,42 @@
         }
         #hero-bg {
             position:absolute; inset:0;
-            background:url('images/nacht_setup.jpg') center/cover no-repeat;
-            transform:scale(1.08); filter:brightness(.32); will-change:transform;
+            background:url('images/IMG_0012.PNG') center 35%/cover no-repeat;
+            transform:scale(1.08); filter:brightness(.38); will-change:transform;
         }
         #hero-overlay {
             position:absolute; inset:0;
-            background:linear-gradient(180deg,rgba(2,2,2,.25) 0%,rgba(2,2,2,0) 35%,rgba(2,2,2,.95) 100%);
+            background:linear-gradient(180deg,rgba(2,2,2,.35) 0%,rgba(2,2,2,.08) 40%,rgba(2,2,2,.95) 100%);
         }
         .hero-content { position:relative; z-index:10; text-align:center; padding:0 1.5rem; }
+
+        /* ─── Lightbox Modal ──────────────────────────────────── */
+        #lightbox-modal {
+            position:fixed; inset:0; z-index:9999;
+            background:rgba(2,2,2,.95);
+            backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+            display:none; align-items:center; justify-content:center;
+            flex-direction:column; padding:1.5rem;
+            opacity:0; transition:opacity .35s ease;
+        }
+        #lightbox-modal.active { display:flex; opacity:1; }
+        #lightbox-img {
+            max-width:92vw; max-height:82vh; object-fit:contain;
+            border:1px solid rgba(201,168,108,.3);
+            box-shadow:0 25px 70px rgba(0,0,0,.85);
+            transform:scale(.96); transition:transform .35s cubic-bezier(.215,.61,.355,1);
+        }
+        #lightbox-modal.active #lightbox-img { transform:scale(1); }
+        #lightbox-caption {
+            margin-top:1.25rem; color:#FAF8F3; font-family:'Cormorant Garamond',serif;
+            font-size:1.25rem; font-style:italic; text-align:center;
+        }
+        #lightbox-close {
+            position:absolute; top:1.8rem; right:2.2rem;
+            background:none; border:none; color:#FAF8F3;
+            font-size:2.2rem; cursor:pointer; transition:color .2s; line-height:1;
+        }
+        #lightbox-close:hover { color:#C9A86C; }
 
         /* ─── Floating Button Cluster ────────────────────────── */
         #float-cluster {
@@ -529,6 +557,13 @@
 <div id="cursor-dot"  aria-hidden="true"></div>
 <div id="cursor-ring" aria-hidden="true"></div>
 
+<!-- ═══ LIGHTBOX MODAL ═══════════════════════════════════════ -->
+<div id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Bildvergrößerung">
+    <button id="lightbox-close" aria-label="Schließen">&times;</button>
+    <img id="lightbox-img" src="" alt="Ketadecor Eventansicht">
+    <div id="lightbox-caption"></div>
+</div>
+
 <!-- ═══ PRELOADER ═══════════════════════════════════════════ -->
 <div id="preloader" aria-hidden="true">
     <div id="pre-logo">KETADECOR</div>
@@ -685,58 +720,58 @@
     </div>
 
     <div id="h-track">
-        <!-- Slide 1 -->
+        <!-- Slide 1: Kölner Dom & Rhein -->
         <div class="h-slide" id="pakete">
-            <img src="images/kerzenmeer_setup_1791424478512.jpg" alt="Kerzenmeer Setup von Ketadecor" class="h-bg" loading="eager">
+            <img src="images/IMG_0012.PNG" alt="Heiratsantrag Kölner Dom Rheinpromenade von Ketadecor" class="h-bg" loading="eager">
             <div class="h-num" aria-hidden="true">01 / 05</div>
             <div class="h-content">
-                <h2 class="h-title">Luce</h2>
-                <p class="h-sub">Das Kerzenmeer</p>
-                <p class="h-desc">Hunderte warmer Lichtpunkte formen einen Weg zum wichtigsten Augenblick Ihres Lebens. Intim, überwältigend, unvergesslich.</p>
+                <h2 class="h-title">Duomo</h2>
+                <p class="h-sub">Kölner Rheinufer · Dom-Skyline · Sparklers</p>
+                <p class="h-desc">Der majestätische Kölner Dom als Kulisse, funkelnde Fontänen und unser monumentaler roter Rosenherzbogen. Ein Antrag wie im Kinofilm.</p>
             </div>
         </div>
 
-        <!-- Slide 2 -->
+        <!-- Slide 2: Sunset Beach am Rhein -->
         <div class="h-slide">
-            <img src="images/blumenbogen_setup_1791424487109.jpg" alt="Blumenbogen Setup von Ketadecor" class="h-bg" loading="lazy">
+            <img src="images/IMG_0976.jpg.jpeg" alt="Sunset Beach Candlelight Heiratsantrag am Rheinufer" class="h-bg" loading="lazy">
             <div class="h-num" aria-hidden="true">02 / 05</div>
             <div class="h-content">
-                <h2 class="h-title">Flora</h2>
-                <p class="h-sub">Der Royal-Blumenbogen</p>
-                <p class="h-desc">Majestätische Floralarchitektur aus Premium-Rosen und Pampasgras. Handgefertigt für Ihre einzigartige Geschichte.</p>
+                <h2 class="h-title">Spiaggia</h2>
+                <p class="h-sub">Sunset Beach Rheinufer · Golden Hour</p>
+                <p class="h-desc">Feiner Sand unter den Füßen, der goldene Sonnenuntergang im Wasser und ein privates Candlelight-Dinner, umhüllt von hunderten weißen Blüten.</p>
             </div>
         </div>
 
-        <!-- Slide 3 — Terra (Luxus-Picknick) — wiederhergstellt -->
+        <!-- Slide 3: Das Luxus-Glasiglu -->
         <div class="h-slide">
-            <img src="images/tisch_deko_setup_1791424506090.jpg" alt="Luxus Picknick Setup von Ketadecor" class="h-bg" loading="lazy">
+            <img src="images/IMG_0787.jpg.jpeg" alt="Exklusives Glasiglu Heiratsantrag Setup von Ketadecor" class="h-bg" loading="lazy">
             <div class="h-num" aria-hidden="true">03 / 05</div>
             <div class="h-content">
-                <h2 class="h-title">Terra</h2>
-                <p class="h-sub">Das Luxus-Picknick</p>
-                <p class="h-desc">Unter freiem Himmel, inmitten der Natur — ein sorgfältig kuratiertes Picknick-Setup, das Eleganz und Wildheit vereint.</p>
+                <h2 class="h-title">Cupola</h2>
+                <p class="h-sub">Das Luxus-Glasiglu · 1000 Lichter</p>
+                <p class="h-desc">Ein warmer, beheizter Lichttempel unter freiem Himmel: Funkelnde Lichterketten, weißer Rosenherzbogen und ungestörte Zweisamkeit zu jeder Jahreszeit.</p>
             </div>
         </div>
 
-        <!-- Slide 4 -->
+        <!-- Slide 4: Glashaus Orangerie -->
         <div class="h-slide">
-            <img src="images/hotel_suite_setup_1791424495952.jpg" alt="Geheime Hotel Suite Setup" class="h-bg" loading="lazy">
+            <img src="images/IMG_0627.jpg.jpeg" alt="Historische Orangerie Glashaus Heiratsantrag" class="h-bg" loading="lazy">
             <div class="h-num" aria-hidden="true">04 / 05</div>
             <div class="h-content">
-                <h2 class="h-title">Secreto</h2>
-                <p class="h-sub">Die geheime Suite</p>
-                <p class="h-desc">Während Sie essen, verwandeln wir Ihr Zimmer diskret in ein Paradies. Die Überraschung beim Öffnen der Tür: unbeschreiblich.</p>
+                <h2 class="h-title">Orangerie</h2>
+                <p class="h-sub">Märchenhaftes Glashaus · Blütenregen</p>
+                <p class="h-desc">Märchenhafte Glasarchitektur, edle Kerzenkandelaber, ein Meer aus frischen Blütenblättern und ein leuchtender Herzbogen für den perfekten Moment.</p>
             </div>
         </div>
 
-        <!-- Slide 5 -->
+        <!-- Slide 5: Rooftop UP Cologne -->
         <div class="h-slide">
-            <img src="images/nacht_setup.jpg" alt="Rooftop Proposal bei Nacht" class="h-bg" loading="lazy">
+            <img src="images/IMG_1041.PNG" alt="Rooftop UP Cologne Skyline Heiratsantrag" class="h-bg" loading="lazy">
             <div class="h-num" aria-hidden="true">05 / 05</div>
             <div class="h-content">
                 <h2 class="h-title">Cielo</h2>
-                <p class="h-sub">Rooftop bei Nacht</p>
-                <p class="h-desc">Die Stadt als Kulisse, der Sternenhimmel als Dach. Lichterketten, Rosen und ein Moment, den sie ihr Leben lang nicht vergisst.</p>
+                <p class="h-sub">Rooftop UP Cologne · 360° Skyline</p>
+                <p class="h-desc">Über den Dächern von Köln: Die funkelnde Metropolen-Skyline, personalisierte Antragstorte, Champagner und pure Romantik.</p>
             </div>
         </div>
     </div>
@@ -760,33 +795,64 @@
     </div>
 
     <div class="gallery-grid max-w-7xl mx-auto px-6">
-        <div class="g-item js-fade">
-            <img src="images/kerzenmeer_setup_1791424478512.jpg" alt="Kerzenmeer Heiratsantrag Ketadecor" loading="lazy">
-            <div class="g-label"><p class="italic-serif text-cream text-sm">Ein Lichtermeer — Köln</p></div>
+        <!-- 1. Live-Antrag Kniefall im Glashaus -->
+        <div class="g-item js-fade" data-caption="Der Moment des Kniefalls — Sie sagt JA im Glashaus-Pavillon">
+            <img src="images/IMG_1601.PNG" alt="Live Heiratsantrag Kniefall von Ketadecor" loading="lazy">
+            <div class="g-label"><p class="italic-serif text-cream text-sm">Der magische Moment — Glashaus</p></div>
         </div>
-        <div class="g-item js-fade">
-            <img src="images/ring_close_up.jpg" alt="Luxus Verlobungsring auf Rose" loading="lazy">
-            <div class="g-label"><p class="italic-serif text-cream text-sm">Der Ring. Die Rose. Der Moment.</p></div>
+
+        <!-- 2. Glückstränen im leuchtenden Glas-Iglu -->
+        <div class="g-item js-fade" data-caption="Tränen des Glücks — Luxus-Glasiglu bei Nacht">
+            <img src="images/IMG_0792.jpg.jpeg" alt="Glückliches Paar im beheizten Luxus-Glasiglu" loading="lazy">
+            <div class="g-label"><p class="italic-serif text-cream text-sm">Tränen des Glücks — Luxus-Iglu</p></div>
         </div>
-        <div class="g-item js-fade">
-            <img src="images/blumenbogen_setup_1791424487109.jpg" alt="Premium Blumenbogen Setup" loading="lazy">
-            <div class="g-label"><p class="italic-serif text-cream text-sm">Botanical Architecture</p></div>
+
+        <!-- 3. Live-Antrag Seesteg mit Fontänen -->
+        <div class="g-item js-fade" data-caption="Live-Antrag auf dem Holzsteg mit Sparkler-Fontänen">
+            <img src="images/IMG_1551.PNG" alt="Live Heiratsantrag auf Steg mit Fontänen" loading="lazy">
+            <div class="g-label"><p class="italic-serif text-cream text-sm">Der Kniefall am Seesteg</p></div>
         </div>
-        <div class="g-item js-fade">
-            <img src="images/champagner_setup.jpg" alt="Champagner Celebration" loading="lazy">
-            <div class="g-label"><p class="italic-serif text-cream text-sm">Auf eine gemeinsame Zukunft</p></div>
+
+        <!-- 4. Ring & Emotion am Rheinufer -->
+        <div class="g-item js-fade" data-caption="Der Verlobungsring im Sonnenuntergang am Rheinufer">
+            <img src="images/IMG_0977.PNG" alt="Paar im Sonnenuntergang am Strand mit Ring" loading="lazy">
+            <div class="g-label"><p class="italic-serif text-cream text-sm">Der Ring am Rheinufer</p></div>
         </div>
-        <div class="g-item js-fade">
-            <img src="images/hotel_suite_setup_1791424495952.jpg" alt="Romantische Hotel Suite" loading="lazy">
-            <div class="g-label"><p class="italic-serif text-cream text-sm">Secret Suite — Düsseldorf</p></div>
+
+        <!-- 5. Sonnenblumen-Herzbogen am See -->
+        <div class="g-item js-fade" data-caption="Einzigartiger Sonnenblumen-Herzbogen am Seeufer">
+            <img src="images/IMG_1590.PNG" alt="Sonnenblumen Herz-Blumenbogen Heiratsantrag Ketadecor" loading="lazy">
+            <div class="g-label"><p class="italic-serif text-cream text-sm">Sonnenblumen-Traum am See</p></div>
         </div>
-        <div class="g-item js-fade">
-            <img src="images/tisch_deko_setup_1791424506090.jpg" alt="Luxus Picknick Setup" loading="lazy">
-            <div class="g-label"><p class="italic-serif text-cream text-sm">Luxury Picnic — Aachen</p></div>
+
+        <!-- 6. Holzpavillon bei Nacht -->
+        <div class="g-item js-fade" data-caption="Romantischer Holzpavillon bei Nacht mit Kronleuchter">
+            <img src="images/IMG_1552.PNG" alt="Holzpavillon bei Nacht mit Lichtermeer und Chandelier" loading="lazy">
+            <div class="g-label"><p class="italic-serif text-cream text-sm">Pavillon der 1000 Lichter</p></div>
         </div>
-        <div class="g-item g-wide js-fade">
-            <img src="images/nacht_setup.jpg" alt="Rooftop Proposal bei Nacht" loading="lazy" style="height:100%; object-fit:cover;">
-            <div class="g-label"><p class="italic-serif text-cream text-sm">Cielo — Rooftop Proposal</p></div>
+
+        <!-- 7. Brücken-Sonnenuntergang Herzbogen -->
+        <div class="g-item js-fade" data-caption="Sonnenuntergang auf der Schlossbrücke mit rotem Rosenherz">
+            <img src="images/IMG_0702.PNG" alt="Schlossbrücke Sonnenuntergang mit rotem Rosenherz" loading="lazy">
+            <div class="g-label"><p class="italic-serif text-cream text-sm">Sonnenuntergang an der Brücke</p></div>
+        </div>
+
+        <!-- 8. Candlelight-Dinner mit Champagner (wide) -->
+        <div class="g-item g-wide js-fade" data-caption="Exklusives Candlelight-Dinner mit Champagner & Kerzensäulen">
+            <img src="images/IMG_1549.PNG" alt="Romantischer Dinner-Tisch mit Kerzenmeer" loading="lazy" style="height:100%; object-fit:cover;">
+            <div class="g-label"><p class="italic-serif text-cream text-sm">Intimes Candlelight-Dinner</p></div>
+        </div>
+
+        <!-- 9. Schloss Benrath Treppe & Riesenballon -->
+        <div class="g-item js-fade" data-caption="Märchenhafte Schlosskulisse & Verlobung">
+            <img src="images/IMG_1594.PNG" alt="Paar an historischer Schlosstreppe mit Ballon" loading="lazy">
+            <div class="g-label"><p class="italic-serif text-cream text-sm">Schlosskulisse — Düsseldorf</p></div>
+        </div>
+
+        <!-- 10. Orangerie Glashaus mit Herzballons (wide) -->
+        <div class="g-item g-wide js-fade" data-caption="Orangerie-Glashaus mit schwebenden Herzballons & Rosenmeer">
+            <img src="images/IMG_1592.PNG" alt="Glashaus Orangerie mit rotem Rosenherz und Ballons" loading="lazy" style="height:100%; object-fit:cover;">
+            <div class="g-label"><p class="italic-serif text-cream text-sm">Orangerie d'Amour — Glashaus</p></div>
         </div>
     </div>
 </section>
@@ -840,7 +906,7 @@
                 </div>
                 <span class="sec-label" style="margin-bottom:.4rem;">Der Blumenbogen</span>
                 <h3 class="font-display text-cream mb-4" style="font-size:1.15rem; letter-spacing:.12em;">FLORA</h3>
-                <p class="text-muted mb-6 flex-grow" style="font-size:.74rem; line-height:1.9;">2,5 m Floral-Bogen, Neon-Sign, Lichterketten, Premium-Champagner-Setup mit Kristallgläsern.</p>
+                <p class="text-muted mb-6 flex-grow" style="font-size:.74rem; line-height:1.9;">Monumentaler 2,5 m Herz-Blumenbogen (Rote Samtrosen, Edle weiße Blüten oder Sonnenblumen-Traum), wählbares Leucht-Neonsign („Will you marry me?“ oder „Will you Complete My Deen?“), Kerzenmeer &amp; Champagner.</p>
                 <ul class="space-y-2 mb-8 text-muted" style="font-size:.68rem; line-height:1.8;">
                     <li class="flex items-center gap-2.5">
                         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#C9A86C" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
@@ -848,11 +914,11 @@
                     </li>
                     <li class="flex items-center gap-2.5">
                         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#C9A86C" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                        Champagner &amp; Dekoration inklusive
+                        Wunsch-Neonsign &amp; Blütenfarbe
                     </li>
                     <li class="flex items-center gap-2.5">
                         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#C9A86C" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                        Persönliche Beratung
+                        Champagner &amp; Kerzen inklusive
                     </li>
                 </ul>
                 <a href="https://wa.me/49123456789" class="mag-btn" style="font-size:.58rem; padding:.95rem 1.4rem;" target="_blank" rel="noopener noreferrer">
@@ -867,21 +933,21 @@
                         <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
                     </svg>
                 </div>
-                <span class="sec-label" style="margin-bottom:.4rem;">Maßarbeit</span>
+                <span class="sec-label" style="margin-bottom:.4rem;">Maßarbeit &amp; Exklusive Locations</span>
                 <h3 class="font-display text-cream mb-4" style="font-size:1.15rem; letter-spacing:.12em;">BESPOKE</h3>
-                <p class="text-muted mb-6 flex-grow" style="font-size:.74rem; line-height:1.9;">Vollständig individuell konzipiert. Von der Location-Recherche bis zum Musik-Moment. Kein Limit, kein Template.</p>
+                <p class="text-muted mb-6 flex-grow" style="font-size:.74rem; line-height:1.9;">Exklusive Traumlocations (Rooftop UP Cologne, Rheinstrand-Dinner, Glashaus-Orangerie oder beheiztes Glasiglu), Kaltfeuerwerk-Fontänen (Sparklers), Chandelier &amp; Komplettbetreuung.</p>
                 <ul class="space-y-2 mb-8 text-muted" style="font-size:.68rem; line-height:1.8;">
                     <li class="flex items-center gap-2.5">
                         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#C9A86C" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                        Individuelle Konzeption
+                        Exklusiv-Locations (Rooftop, Glashaus, Strand)
                     </li>
                     <li class="flex items-center gap-2.5">
                         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#C9A86C" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                        Location-Scouting inklusive
+                        Sparkler Fontänen &amp; Special Effects
                     </li>
                     <li class="flex items-center gap-2.5">
                         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#C9A86C" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-                        Full-Service Rundum-Betreuung
+                        Full-Service VIP Rundumbetreuung
                     </li>
                 </ul>
                 <a href="https://wa.me/49123456789" class="mag-btn" style="font-size:.58rem; padding:.95rem 1.4rem;" target="_blank" rel="noopener noreferrer">
@@ -905,13 +971,16 @@
                     </h2>
                     <div class="gold-line-left mt-8"></div>
                     <p class="text-muted mt-6" style="font-size:.74rem; line-height:1.9;">
-                        Diskretion und Perfektion sind keine Optionen — sie sind unser Standard. Hinter jedem unvergesslichen Moment steckt ein präziser Prozess.
+                        Diskretion und Perfektion sind keine Optionen — sie sind unser Standard. Hinter jedem unvergesslichen Moment steht ein präzises, eingespieltes Team.
                     </p>
-                    <!-- Champagne image -->
+                    <!-- Authentic fleet transport image -->
                     <div class="mt-10 overflow-hidden" style="aspect-ratio:4/3; border:1px solid #1E1E1E;">
-                        <img src="images/champagner_setup.jpg" alt="Champagner Celebration" loading="lazy"
-                             class="w-full h-full object-cover filter brightness-75 hover:brightness-100 transition duration-700">
+                        <img src="images/IMG_1596.PNG" alt="Ketadecor Event-Flotte vor Ort in NRW und Baden-Württemberg" loading="lazy"
+                             class="w-full h-full object-cover filter brightness-90 hover:brightness-100 transition duration-700">
                     </div>
+                    <p class="text-gold mt-3 text-center" style="font-size:.58rem; letter-spacing:.25em; text-transform:uppercase;">
+                        Eigene Ketadecor-Flotte vor Ort — Pünktlich &amp; diskret
+                    </p>
                 </div>
             </div>
 
@@ -1191,7 +1260,7 @@ if (window.matchMedia('(hover:hover)').matches) {
         gsap.to(dot,  { x: e.clientX, y: e.clientY, duration: .08 });
         gsap.to(ring, { x: e.clientX, y: e.clientY, duration: .38, ease: 'power2.out' });
     });
-    document.querySelectorAll('a, button, [onclick], .float-btn').forEach(el => {
+    document.querySelectorAll('a, button, [onclick], .float-btn, .g-item').forEach(el => {
         el.addEventListener('mouseenter', () => document.body.classList.add('c-hover'));
         el.addEventListener('mouseleave', () => document.body.classList.remove('c-hover'));
     });
@@ -1359,6 +1428,46 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         const el = document.querySelector(id);
         if (el) { e.preventDefault(); lenis.scrollTo(el, { offset: -80, duration: 1.6 }); }
     });
+});
+
+/* ── 12. Lightbox Modal for Real Photos ───────────────────── */
+const lbModal   = document.getElementById('lightbox-modal');
+const lbImg     = document.getElementById('lightbox-img');
+const lbCaption = document.getElementById('lightbox-caption');
+const lbClose   = document.getElementById('lightbox-close');
+
+function openLightbox(src, caption) {
+    if (!lbModal || !lbImg) return;
+    lbImg.src = src;
+    lbCaption.textContent = caption || '';
+    lbModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    if (!lbModal || !lbImg) return;
+    lbModal.classList.remove('active');
+    document.body.style.overflow = '';
+    setTimeout(() => { lbImg.src = ''; }, 300);
+}
+
+document.querySelectorAll('.g-item').forEach(item => {
+    item.style.cursor = 'pointer';
+    item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        const caption = item.getAttribute('data-caption') || (img ? img.alt : '');
+        if (img) openLightbox(img.src, caption);
+    });
+});
+
+if (lbClose) lbClose.addEventListener('click', closeLightbox);
+if (lbModal) {
+    lbModal.addEventListener('click', e => {
+        if (e.target === lbModal || e.target === lbClose) closeLightbox();
+    });
+}
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && lbModal && lbModal.classList.contains('active')) closeLightbox();
 });
 </script>
 </body>
